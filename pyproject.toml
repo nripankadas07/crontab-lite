@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crontab-lite"
+version = "0.1.0"
+description = "Parse and evaluate standard cron expressions to check datetime matches"
+authors = [{name = "Nripanka Das", email = "nripankadas@gmail.com"}]
+license = {text = "MIT"}
+keywords = ["cron", "crontab", "scheduling", "datetime"]
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
