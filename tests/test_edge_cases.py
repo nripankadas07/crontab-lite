@@ -91,7 +91,7 @@ class TestEdgeCasesDayOfMonthMonth:
         assert matches(expr, datetime(2024, 2, 28, 10, 0)) is True
 
     def test_matches_feb_29_leap(self):
-       """February 29 matches only in leap years."""
+        """February 29 matches only in leap years."""
         expr = "* * 29 2 *"
         assert matches(expr, datetime(2024, 2, 29, 10, 0)) is True
 
@@ -101,12 +101,12 @@ class TestEdgeCasesDayOfMonthMonth:
         assert matches(expr, datetime(2026, 4, 30, 10, 0)) is True
 
     def test_matches_dom_31_in_april(self):
-       """Day 31 in April (has only 30 days)."""
+        """Day 31 in April (has only 30 days)."""
         expr = "* * 31 4 *"
         assert matches(expr, datetime(2026, 4, 30, 10, 0)) is False
 
     def test_parse_dom_values_30_31(self):
-       """Parse expressions with day 30 and 31."""
+        """Parse expressions with day 30 and 31."""
         expr = parse("* * 30,31 * *")
         assert 30 in expr.dom
         assert 31 in expr.dom
@@ -121,7 +121,7 @@ class TestEdgeCasesListEdges:
         assert expr.minute == {5}
 
     def test_parse_list_unsorted(self):
-       """Parse list with unsorted values."""
+        """Parse list with unsorted values."""
         expr = parse("45,10,30 * * * *")
         assert expr.minute == {15, 30, 45}
 
@@ -131,7 +131,7 @@ class TestEdgeCasesListEdges:
         assert expr.minute == {5}
 
     def test_parse_list_with_range(self):
-       """Parse list containing range."""
+        """Parse list containing range."""
         expr = parse("1-3,5,7-9 * * * *")
         assert expr.minute == {1, 2, 3, 5, 7, 8, 9}
 
@@ -140,7 +140,7 @@ class TestEdgeCasesMonthYear:
     """Test month and year-boundary edge cases."""
 
     def test_next_fire_december_to_january(self):
-       """next_fire wraps from December to January of next year."""
+        """next_fire wraps from December to January of next year."""
         expr = "0 0 1 1 *"
         dt = datetime(2026, 12, 15, 12, 0)
         result = next_fire(expr, dt)
@@ -188,7 +188,7 @@ class TestEdgeCasesTimeOfDay:
         assert result == datetime(2026, 4, 15, 0, 0)
 
     def test_next_fire_exact_match(self):
-       """next_fire when current time is exact match."""
+        """next_fire when current time is exact match."""
         expr = "30 12 * * *"
         dt = datetime(2026, 4, 15, 12, 30)
         result = next_fire(expr, dt)

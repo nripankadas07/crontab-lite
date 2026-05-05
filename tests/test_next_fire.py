@@ -16,7 +16,7 @@ class TestNextFireBasic:
         assert result == datetime(2026, 4, 15, 12, 31, 0)
 
     def test_next_fire_with_parsed_expression(self):
-       """Find next occurrence using parsed CronExpression."""
+        """Find next occurrence using parsed CronExpression."""
         expr = parse("30 12 * * *")
         dt = datetime(2026, 4, 15, 12, 0)
         result = next_fire(expr, dt)
