@@ -123,7 +123,7 @@ class TestEdgeCasesListEdges:
     def test_parse_list_unsorted(self):
         """Parse list with unsorted values."""
         expr = parse("45,10,30 * * * *")
-        assert expr.minute == {15, 30, 45}
+        assert expr.minute == {10, 30, 45}
 
     def test_parse_list_duplicates(self):
         """Parse list with duplicate values."""
@@ -215,7 +215,7 @@ class TestEdgeCasesInvalidSyntax:
     def test_parse_double_dash(self):
         """Reject double dash."""
         with pytest.raises(CrontabError):
-            parse("1-5 * * * *")
+            parse("1--5 * * * *")
 
     def test_parse_leading_dash(self):
         """Reject leading dash (not a negative number context)."""

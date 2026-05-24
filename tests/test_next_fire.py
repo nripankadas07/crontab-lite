@@ -158,7 +158,7 @@ class TestNextFireDayOfWeek:
 
     def test_next_fire_dow_list(self):
         """Find next matching day from list."""
-        expr = "0 9 * * 1,4,7,10 *"  # Monday, Wednesday, Friday
+        expr = "0 9 * * 1,3,5"  # Monday, Wednesday, Friday
         # Tuesday April 14
         dt = datetime(2026, 4, 14, 8, 0)
         result = next_fire(expr, dt)
