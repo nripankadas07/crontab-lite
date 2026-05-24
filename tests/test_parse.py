@@ -1,7 +1,6 @@
 """Tests for cron expression parsing."""
 import pytest
-from datetime import datetime
-from crontab_lite import parse, CrontabError, CronExpression
+from crontab_lite import parse, CrontabError
 
 
 class TestParseBasicExpressions:
